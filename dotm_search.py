@@ -9,14 +9,16 @@ import sys
 import glob
 import zipfile
 
-cwd = os.getcwd()
+cwd = os.getcwd() + '/dotm_files/'
 
 # Your awesome code begins here!
 def decodeDOTM(text, pathway=cwd):
     total_files_searched = 0
     files_matched = 0
 
-    for filename in glob.iglob('dotm_files/*.dotm'):
+    print pathway
+
+    for filename in glob.iglob(pathway + '/*.dotm'):
         zf = zipfile.ZipFile(filename, 'r')
         data = zf.read('word/document.xml')
         total_files_searched += 1
